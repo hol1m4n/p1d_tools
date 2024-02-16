@@ -1,0 +1,159 @@
+                                  
+                                                                                                    
+ ████ ███  ███ █   █ ████ ███ █████ ████      ████ ███   ███  ███ ███ █   █ ███  ████ ███   ████████
+ █     █   █ █ ██  █  █ █ █ █  █  █  █ █       █ █  █    █    █   █ █ ██ ██ █ █  █     █    █   █  █
+ ████  █   ███ █ █ █  █ █ ███  ████  █ █ ███   ███  █    █    █   ███ █ █ █ ███  ████  █    ███ ████
+    █  █   █ █ █  ██  █ █ █ █  █ █   █ █       █    █    █    █   █ █ █   █ █ █     █  █    █   █ █ 
+ ████  █   █ █ █   █ ████ █ █  █  █ ████       █   ███   ███  ███ █ █ █   █ █ █  ████  █    ███ █  █
+                                                                                                    
+
+
+                                                                                     
+ ████ ███  ███ █   █ ████ ███ █████ ████      ████ ███   ███  ███ ███  ████  █   ████
+ █     █   █ █ ██  █  █ █ █ █  █  █  █ █       █ █  █    █    █   █ █  █  █  █    █ █
+ ████  █   ███ █ █ █  █ █ ███  ████  █ █ ███   ███  █    █    █   ███  █  █  █    █ █
+    █  █   █ █ █  ██  █ █ █ █  █ █   █ █       █    █    █    █   █ █  █  █  █    █ █
+ ████  █   █ █ █   █ ████ █ █  █  █ ████       █   ███   ███  ███ █ █  ████  ███ ████
+                                                                                     
+Corentin intervention
+With: picca-old
+*Adding missing spectra fixing the extraction catalogue (all spectra re-downloaded)
+*Proper catalog
+*Proper spec database
+*All spec names checked
+*BAL quasars removed
+*new DLA catalog with more than 3x10^5 quasars (removing 0000 values on thing_id(*The error came from the Bintable name so I decided to let the 00000 values on teh catalog))
+*Using flag part 1 in P1D
+
+
+picca_deltas.py:
+
+nohup picca_deltas.py --out-dir /work1/holman7/eBOSS/DR16/D1/A/ --drq /work1/holman7/eBOSS/cata_files/exDR16Qcat.fits --in-dir /work1/holman7/spc_fulldr16/ --log inputa.log --iter-out-prefix iterA --mode spec --best-obs --single-exp --bi-max 0.0 --lambda-min 3750.0 --lambda-max 7200.0 --lambda-rest-min 1050 --lambda-rest-max 1093.3 --rebin 1 --npix-min 75 --dla-vac /work1/holman7/eBOSS/cata_files/DLA_DR16.fits --dla-mask 0.80 --mask-file /work1/holman7/eBOSS/cata_files/list_veto_line_Pk1D.txt --delta-format Pk1D --use-constant-weight --order 0 --nit 7 --nproc 8 --nspec 169753 &
+
+nohup picca_deltas.py --out-dir /work1/holman7/eBOSS/DR16/D1/B/ --drq /work1/holman7/eBOSS/cata_files/exDR16Qcat.fits --in-dir /work1/holman7/spc_fulldr16/ --log inputb.log --iter-out-prefix iterB --mode spec --best-obs --single-exp --bi-max 0.0 --lambda-min 3750.0 --lambda-max 7200.0 --lambda-rest-min 1093.3 --lambda-rest-max 1136.6 --rebin 1 --npix-min 75 --dla-vac /work1/holman7/eBOSS/cata_files/DLA_DR16.fits --dla-mask 0.80 --mask-file /work1/holman7/eBOSS/cata_files/list_veto_line_Pk1D.txt --delta-format Pk1D --use-constant-weight --order 0 --nit 7 --nproc 8 --nspec 169753 &
+
+nohup picca_deltas.py --out-dir /work1/holman7/eBOSS/DR16/D1/C/ --drq /work1/holman7/eBOSS/cata_files/exDR16Qcat.fits --in-dir /work1/holman7/spc_fulldr16/ --log inputc.log --iter-out-prefix iterC --mode spec --best-obs --single-exp --bi-max 0.0 --lambda-min 3750.0 --lambda-max 7200.0 --lambda-rest-min 1136.6 --lambda-rest-max 1180 --rebin 1 --npix-min 75 --dla-vac /work1/holman7/eBOSS/cata_files/DLA_DR16.fits --dla-mask 0.80 --mask-file /work1/holman7/eBOSS/cata_files/list_veto_line_Pk1D.txt --delta-format Pk1D --use-constant-weight --order 0 --nit 7 --nproc 8 --nspec 169753 &
+
+Run 13.1: ---------------------------------------     
+
+P1D(master):
+        --lambda-obs-min 3750
+        --noise-estimate mean_rebin_diff
+        --num-processors 8
+        --nb-part 1
+        --SNR-min 2.0
+        --reso-max 85.0
+        --nb-pixel-min 75
+        --nb-pixel-masked-max 40
+        --forest-type Lya
+        --abs-igm LYA
+
+picca_Pk1D.py --out-dir /work1/holman7/FPS/run13.1 --in-dir /work1/holman7/eBOSS/DR16/DELTAS/run13/set_DR16R13 --lambda-obs-min 3750 --noise-estimate mean_rebin_diff --num-processors 8 --nb-part 1 --SNR-min 2.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 40 --forest-type Lya --abs-igm LYA
+
+P1D postprocess:
+     
+            --kedge-min 0.000813
+            --kedge-max 0.020325
+            --kedge-bin 0.000542
+            --snr-cut-scheme eboss
+
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/FPS/run13.1 --output-file mean_Pk1d_run13.1.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --snr-cut-scheme eboss --overwrite
+
+
+
+
+
+
+
+
+
+The config.ini file is on the folders in case of needing. Just the P1D and the postprocess steps here.
+
+
+1: Standard-old = mean_Pk1d_DR16_So.fits.gz
+
+
+picca_Pk1D.py --out-dir /work1/holman7/eBOSS/DR16/F1/ --in-dir /work1/holman7/eBOSS/DR16/D1/set_fP1D/ --lambda-obs-min 3750 --noise-estimate mean_rebin_diff --num-processors 8 --nb-part 1 --SNR-min 2.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 40 --forest-type Lya --abs-igm LYA
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/eBOSS/DR16/F1/ --output-file P1D_eBOSS_DR16_Standard(v4).fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --snr-cut-scheme eboss --overwrite
+ls
+
+
+2: Standard-master = mean_Pk1d_DR16_Sm.fits.gz
+
+
+picca_Pk1D.py --out-dir /work1/holman7/eBOSS/DR16/F2/ --in-dir /work1/holman7/eBOSS/DR16/D2/set_fP1D/ --lambda-obs-min 3750 --noise-estimate mean_rebin_diff --num-processors 8 --nb-part 1 --SNR-min 2.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 40 --forest-type Lya --abs-igm LYA
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/eBOSS/DR16/F2/ --output-file P1D_eBOSS_DR16_Standard(master).fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --snr-cut-scheme eboss --overwrite
+ls
+
+ 
+
+3: DLA not corrected
+
+picca_Pk1D.py --out-dir /work1/holman7/eBOSS/DR16/F3/ --in-dir /work1/holman7/eBOSS/DR16/D3/set_fP1D/ --lambda-obs-min 3750 --noise-estimate mean_rebin_diff --num-processors 8 --nb-part 1 --SNR-min 2.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 40 --forest-type Lya --abs-igm LYA
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/eBOSS/DR16/F3/ --output-file P1D_eBOSS_DR16_DLAnot_corrected.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --snr-cut-scheme eboss --overwrite
+ls
+
+4: BLA included
+
+picca_Pk1D.py --out-dir /work1/holman7/eBOSS/DR16/F4/ --in-dir /work1/holman7/eBOSS/DR16/D4/set_fP1D/ --lambda-obs-min 3750 --noise-estimate mean_rebin_diff --num-processors 8 --nb-part 1 --SNR-min 2.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 40 --forest-type Lya --abs-igm LYA
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/eBOSS/DR16/F4/ --output-file P1D_eBOSS_DR16_BALincluded.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --snr-cut-scheme eboss --overwrite
+ls
+
+5: Sky lines not included
+
+picca_Pk1D.py --out-dir /work1/holman7/eBOSS/DR16/F5/ --in-dir /work1/holman7/eBOSS/DR16/D5/set_fP1D/ --lambda-obs-min 3750 --noise-estimate mean_rebin_diff --num-processors 8 --nb-part 1 --SNR-min 2.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 40 --forest-type Lya --abs-igm LYA
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/eBOSS/DR16/F5/ --output-file P1D_eBOSS_DR16_SkyLines_included.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --snr-cut-scheme eboss --overwrite
+ls
+
+
+
+cd F1
+picca_Pk1D.py --out-dir /work1/holman7/eBOSS/DR16/F1/ --in-dir /work1/holman7/eBOSS/DR16/D1/set_fP1D/ --lambda-obs-min 3750 --noise-estimate mean_rebin_diff --num-processors 8 --nb-part 1 --SNR-min 2.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 40 --forest-type Lya --abs-igm LYA
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/eBOSS/DR16/F1/ --output-file P1D_eBOSS_DR16_Standard-v4.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --snr-cut-scheme eboss --overwrite
+cd ..
+cd F2
+picca_Pk1D.py --out-dir /work1/holman7/eBOSS/DR16/F2/ --in-dir /work1/holman7/eBOSS/DR16/D2/set_fP1D/ --lambda-obs-min 3750 --noise-estimate mean_rebin_diff --num-processors 8 --nb-part 1 --SNR-min 2.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 40 --forest-type Lya --abs-igm LYA
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/eBOSS/DR16/F2/ --output-file P1D_eBOSS_DR16_Standard-master.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --snr-cut-scheme eboss --overwrite
+cd ..
+cd F3
+picca_Pk1D.py --out-dir /work1/holman7/eBOSS/DR16/F3/ --in-dir /work1/holman7/eBOSS/DR16/D3/set_fP1D/ --lambda-obs-min 3750 --noise-estimate mean_rebin_diff --num-processors 8 --nb-part 1 --SNR-min 2.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 40 --forest-type Lya --abs-igm LYA
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/eBOSS/DR16/F3/ --output-file P1D_eBOSS_DR16_DLAnot_corrected.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --snr-cut-scheme eboss --overwrite
+cd ..
+cd F4
+picca_Pk1D.py --out-dir /work1/holman7/eBOSS/DR16/F4/ --in-dir /work1/holman7/eBOSS/DR16/D4/set_fP1D/ --lambda-obs-min 3750 --noise-estimate mean_rebin_diff --num-processors 8 --nb-part 1 --SNR-min 2.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 40 --forest-type Lya --abs-igm LYA
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/eBOSS/DR16/F4/ --output-file P1D_eBOSS_DR16_BALincluded.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --snr-cut-scheme eboss --overwrite
+cd ..
+cd F5
+picca_Pk1D.py --out-dir /work1/holman7/eBOSS/DR16/F5/ --in-dir /work1/holman7/eBOSS/DR16/D5/set_fP1D/ --lambda-obs-min 3750 --noise-estimate mean_rebin_diff --num-processors 8 --nb-part 1 --SNR-min 2.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 40 --forest-type Lya --abs-igm LYA
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/eBOSS/DR16/F5/ --output-file P1D_eBOSS_DR16_SkyLines_included.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --snr-cut-scheme eboss --overwrite
+cd ..
+ls
+
+
+
+
+
+scp holman7@10.31.102.31:/work1/holman7/eBOSS/DR16/F1/P1D_eBOSS_DR16_Standard-v4.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/eBOSS/DR16/F2/P1D_eBOSS_DR16_Standard-master.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/eBOSS/DR16/F3/P1D_eBOSS_DR16_DLAnot_corrected.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/eBOSS/DR16/F4/P1D_eBOSS_DR16_BALincluded.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/eBOSS/DR16/F5/P1D_eBOSS_DR16_SkyLines_included.fits.gz /home/hquintero/TFPS/
+
+
+scp holman7@148.214.16.6:/work1/holman7/eBOSS/DR16/F1/P1D_eBOSS_DR16_Standard-v4.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/eBOSS/DR16/F2/P1D_eBOSS_DR16_Standard-master.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/eBOSS/DR16/F3/P1D_eBOSS_DR16_DLAnot_corrected.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/eBOSS/DR16/F4/P1D_eBOSS_DR16_BALincluded.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/eBOSS/DR16/F5/P1D_eBOSS_DR16_SkyLines_included.fits.gz /home/colgoat/TFPS/
+
+
+
+
+
+
+
+
+
+
+
+

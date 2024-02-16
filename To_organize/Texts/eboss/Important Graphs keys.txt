@@ -1,0 +1,44 @@
+Important Graphs keys:
+
+Chosen for comparison:
+Plate	7339
+MJD	56799
+FiberID	379
+RA	14:11:04.14
+DEC	+52:17:55.44
+z	2.88415
+zerr	0.00010021
+thing_id 495734014
+
+
+
+
+
+DLA identified:  
+
+Plate	4987
+MJD	55746
+FiberID	672
+RA	16:54:08.18
+DEC	+35:09:54.98
+
+
+
+BAL identified:
+
+
+spec-6392-56331-0942(BAL).fits
+
+
+
+
+http://astronomy.nmsu.edu/cwc/Group/QALsims/
+
+https://coolors.co/19381f-f4f1bb-4c934c-6f8695-1c448e
+
+
+
+export PATH=/work1/holman7/picca-old/picca-4.alpha/bin:$PATH
+export PYTHONPATH=/work1/holman7/picca-old/picca-4.alpha/py:$PYTHONPATH
+
+

@@ -1,0 +1,405 @@
+                                  
+█████ █  █ █   █      ████ █   █ ███
+ █  █ █  █ ██  █      █  █ ██  █ █  
+ ████ █  █ █ █ █ ███  █  █ █ █ █ ███
+ █ █  █  █ █  ██      █  █ █  ██ █  
+ █  █ ████ █   █      ████ █   █ ███
+                                   
+
+Standard
+
+picca_Pk1D.py \
+--out-dir /work1/holman7/DESI/F1/ \
+--in-dir /work1/holman7/DESI/D1/Delta/ \
+--lambda-obs-min 3750 \
+--noise-estimate pipeline \
+--num-processors 8 \
+--nb-part 3 \
+--SNR-min 1.0 \
+--reso-max 85.0 \
+--nb-pixel-min 75 \
+--nb-pixel-masked-max 120 \
+--forest-type Lya \
+--abs-igm LYA \
+--num-noise-exp 2500
+
+
+picca_Pk1D_postprocess.py \
+--in-dir /work1/holman7/DESI/F1/ \
+--output-file P1D_DESI_SV1-3_Standard_lambunits.fits.gz \
+--kedge-min 0.02 \
+--kedge-max 2.04 \
+--kedge-bin 0.038  \
+--weight-method fit_snr \
+--overwrite \
+--rebinfac 1 \
+--covariance \
+--bootstrap \
+--nbootstrap 5
+
+
+
+
+
+
+
+
+
+
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_Stan_l_Corrted.fits.gz --kedge-min 0.021112853854837323 --kedge-max 3.888864692571693 --kedge-bin 0.03754419119695486  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+
+
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/deltas_corentin/p1d --output-file P1D_DESI_SV13CorentinDelts2_godbinng.fits.gz --kedge-min 0.021112853854837323 --kedge-max 3.888864692571693 --kedge-bin 0.03754419119695486  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+
+
+
+
+
+
+
+
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_Standard_velunits.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_Standard_velunits_extended.fits.gz --kedge-min 0.000813 --kedge-max 0.040325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+
+
+
+BALS
+
+picca_Pk1D.py --out-dir /work1/holman7/DESI/F2/ --in-dir /work1/holman7/DESI/D2/Delta/ --lambda-obs-min 3750 --noise-estimate pipeline --num-processors 8 --nb-part 3 --SNR-min 1.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 120 --forest-type Lya --abs-igm LYA --num-noise-exp 2500
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F2/ --output-file mean_Pk1d_DESIr2L.fits.gz --kedge-min 0.02 --kedge-max 2.04 --kedge-bin 0.038  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F2/ --output-file mean_Pk1d_DESIr2V.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F2/ --output-file mean_Pk1d_DESIr2V_longer.fits.gz --kedge-min 0.000813 --kedge-max 0.040325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+
+
+
+
+Sky lines
+
+
+picca_Pk1D.py --out-dir /work1/holman7/DESI/F3/ --in-dir /work1/holman7/DESI/D3/Delta/ --lambda-obs-min 3750 --noise-estimate pipeline --num-processors 8 --nb-part 3 --SNR-min 1.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 120 --forest-type Lya --abs-igm LYA --num-noise-exp 2500
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F3/ --output-file mean_Pk1d_DESIr3L.fits.gz --kedge-min 0.02 --kedge-max 2.04 --kedge-bin 0.038  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F3/ --output-file mean_Pk1d_DESIr3V.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F3/ --output-file mean_Pk1d_DESIr3V_longer.fits.gz --kedge-min 0.000813 --kedge-max 0.040325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+
+
+cd F1
+picca_Pk1D.py --out-dir /work1/holman7/DESI/F1/ --in-dir /work1/holman7/DESI/D1/Delta/ --lambda-obs-min 3750 --noise-estimate pipeline --num-processors 8 --nb-part 3 --SNR-min 1.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 120 --forest-type Lya --abs-igm LYA --num-noise-exp 2500
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_Standard_lambunits.fits.gz --kedge-min 0.02 --kedge-max 2.04 --kedge-bin 0.038  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_Standard_velunits.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_Standard_velunits_extended.fits.gz --kedge-min 0.000813 --kedge-max 0.040325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+ls
+cd ..
+cd F2
+picca_Pk1D.py --out-dir /work1/holman7/DESI/F2/ --in-dir /work1/holman7/DESI/D2/Delta/ --lambda-obs-min 3750 --noise-estimate pipeline --num-processors 8 --nb-part 3 --SNR-min 1.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 120 --forest-type Lya --abs-igm LYA --num-noise-exp 2500
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_BALincluded_lambunits.fits.gz --kedge-min 0.02 --kedge-max 2.04 --kedge-bin 0.038  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_BALincluded_velunits.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_BALincluded_velunits_extended.fits.gz --kedge-min 0.000813 --kedge-max 0.040325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+ls
+cd ..
+cd F3
+picca_Pk1D.py --out-dir /work1/holman7/DESI/F3/ --in-dir /work1/holman7/DESI/D3/Delta/ --lambda-obs-min 3750 --noise-estimate pipeline --num-processors 8 --nb-part 3 --SNR-min 1.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 120 --forest-type Lya --abs-igm LYA --num-noise-exp 2500
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_SkyLines_included_lambunits.fits.gz --kedge-min 0.02 --kedge-max 2.04 --kedge-bin 0.038  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_SkyLines_included_velunits.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_SkyLines_included_velunits_extended.fits.gz --kedge-min 0.000813 --kedge-max 0.040325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+ls
+cd ..
+ls
+
+
+
+
+
+
+
+
+scp holman7@10.31.102.31:/work1/holman7/DESI/F1/P1D_DESI_SV1-3_Standard_lambunits.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/DESI/F1/P1D_DESI_SV1-3_Standard_velunits.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/DESI/F1/P1D_DESI_SV1-3_Standard_velunits_extended.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/DESI/F2/P1D_DESI_SV1-3_BALincluded_lambunits.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/DESI/F2/P1D_DESI_SV1-3_BALincluded_velunits.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/DESI/F2/P1D_DESI_SV1-3_BALincluded_velunits_extended.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/DESI/F3/P1D_DESI_SV1-3_SkyLines_included_lambunits.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/DESI/F3/P1D_DESI_SV1-3_SkyLines_included_velunits.fits.gz /home/hquintero/TFPS/
+scp holman7@10.31.102.31:/work1/holman7/DESI/F3/P1D_DESI_SV1-3_SkyLines_included_velunits_extended.fits.gz /home/hquintero/TFPS/
+
+
+
+scp holman7@148.214.16.6:/work1/holman7/DESI/F1/P1D_DESI_SV1-3_Standard_lambunits.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/DESI/F1/P1D_DESI_SV1-3_Standard_velunits.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/DESI/F1/P1D_DESI_SV1-3_Standard_velunits_extended.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/DESI/F2/P1D_DESI_SV1-3_BALincluded_lambunits.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/DESI/F2/P1D_DESI_SV1-3_BALincluded_velunits.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/DESI/F2/P1D_DESI_SV1-3_BALincluded_velunits_extended.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/DESI/F3/P1D_DESI_SV1-3_SkyLines_included_lambunits.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/DESI/F3/P1D_DESI_SV1-3_SkyLines_included_velunits.fits.gz /home/colgoat/TFPS/
+scp holman7@148.214.16.6:/work1/holman7/DESI/F3/P1D_DESI_SV1-3_SkyLines_included_velunits_extended.fits.gz /home/colgoat/TFPS/
+
+
+
+
+
+cd F1
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_Standard_lambunits.fits.gz --kedge-min 0.02 --kedge-max 2.04 --kedge-bin 0.038  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_Standard_velunits.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_Standard_velunits_extended.fits.gz --kedge-min 0.000813 --kedge-max 0.040325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+ls
+cd ..
+cd F2
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_BALincluded_lambunits.fits.gz --kedge-min 0.02 --kedge-max 2.04 --kedge-bin 0.038  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_BALincluded_velunits.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_BALincluded_velunits_extended.fits.gz --kedge-min 0.000813 --kedge-max 0.040325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+ls
+cd ..
+cd F3
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_SkyLines_included_lambunits.fits.gz --kedge-min 0.02 --kedge-max 2.04 --kedge-bin 0.038  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_SkyLines_included_velunits.fits.gz --kedge-min 0.000813 --kedge-max 0.020325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/F1/ --output-file P1D_DESI_SV1-3_SkyLines_included_velunits_extended.fits.gz --kedge-min 0.000813 --kedge-max 0.040325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+ls
+cd ..
+ls
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+
+█████ █  █ █   █      ███ █   █ ████
+ █  █ █  █ ██  █       █  █   █ █  █
+ ████ █  █ █ █ █ ███   █  █ █ █ █  █
+ █ █  █  █ █  ██       █  ██ ██ █  █
+ █  █ ████ █   █       █  █   █ ████
+                                
+Sanity check
+
+
+
+picca_Pk1D.py \
+--out-dir /work1/holman7/DESI/SC/P1D \
+--in-dir /work1/holman7/DESI/SC/DELTAS/Delta/ \
+--lambda-obs-min 3750 \
+--noise-estimate pipeline \
+--num-processors 8 \
+--nb-part 3 \
+--SNR-min 1.0 \
+--reso-max 85.0 \
+--nb-pixel-min 75 \
+--nb-pixel-masked-max 120 \
+--forest-type Lya \
+--abs-igm LYA \
+--num-noise-exp 2500
+
+
+picca_Pk1D_postprocess.py \
+--in-dir /work1/holman7/DESI/SC/P1D \
+--output-file P1D_DESI_SV1-3_Standard_lambunits.fits.gz \
+--kedge-min 0.02 \
+--kedge-max 2.04 \
+--kedge-bin 0.038  \
+--weight-method fit_snr \
+--overwrite \
+--rebinfac 1 \
+--covariance \
+--bootstrap \
+--nbootstrap 5
+
+
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/SC/P1D --output-file P1D_DESI_SC.fits.gz --kedge-min 0.021112853854837323 --kedge-max 3.888864692571693 --kedge-bin 0.03754419119695486  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/SC/P1D --output-file P1D_DESI_SC_vel_extent.fits.gz  --kedge-min 0.000813 --kedge-max 0.040325 --kedge-bin 0.000542 --weight-method fit_snr --velunits --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+
+
+
+
+
+
+picca_Pk1D_postprocess.py --in-dir /work1/holman7/DESI/deltas_corentin/p1d --output-file P1D_DESI_SV13CorentinDelts2_godbinng.fits.gz --kedge-min 0.021112853854837323 --kedge-max 3.888864692571693 --kedge-bin 0.03754419119695486  --weight-method fit_snr --overwrite --rebinfac 1 --covariance --bootstrap --nbootstrap 5
+
+
+picca_Pk1D.py --out-dir /work1/holman7/DESI/SC/P1D --in-dir /work1/holman7/DESI/SC/DELTAS/Delta/ --lambda-obs-min 3750 --noise-estimate pipeline --num-processors 8 --nb-part 3 --SNR-min 1.0 --reso-max 85.0 --nb-pixel-min 75 --nb-pixel-masked-max 120 --forest-type Lya --abs-igm LYA --num-noise-exp 2500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            
+█████ █  █ █   █      ███ █  █ █████ ███ ███
+ █  █ █  █ ██  █       █  █  █  █  █ █   █  
+ ████ █  █ █ █ █ ███   █  ████  ████ ███ ███
+ █ █  █  █ █  ██       █  █  █  █ █  █   █  
+ █  █ ████ █   █       █  █  █  █  █ ███ ███
+                                             
+ 
+                                        
+█████ █  █ █   █       ███ ████ █  █ █████
+ █  █ █  █ ██  █       █   █  █ █  █  █  █
+ ████ █  █ █ █ █ ███   ███ █  █ █  █  ████
+ █ █  █  █ █  ██       █   █  █ █  █  █ █ 
+ █  █ ████ █   █       █   ████ ████  █  █
+                                        
+                               
+
+
+
+                                        
+█████ █  █ █   █       ███ ███ █ █ ███
+ █  █ █  █ ██  █       █    █  █ █ █  
+ ████ █  █ █ █ █ ███   ███  █  █ █ ███
+ █ █  █  █ █  ██       █    █  █ █ █  
+ █  █ ████ █   █       █   ███  █  ███
+                                        
+                 
+
+
+
+                                   
+█████ █  █ █   █      ████ ███ █ █ 
+ █  █ █  █ ██  █      █     █  █ █ 
+ ████ █  █ █ █ █ ███  ████  █   █  
+ █ █  █  █ █  ██         █  █  █ █ 
+ █  █ ████ █   █      ████ ███ █ █ 
+                                                                
+
+
+
+                                             
+█████ █  █ █   █      ████  ███ █ █ ███ █   █
+ █  █ █  █ ██  █      █     █   █ █ █   ██  █
+ ████ █  █ █ █ █ ███  ████  ███ █ █ ███ █ █ █
+ █ █  █  █ █  ██         █  █   █ █ █   █  ██
+ █  █ ████ █   █      ████  ███  █  ███ █   █
+
+
+
+
+                                            
+█████ █  █ █   █       ███ ███ ████ █  █ ███ 
+ █  █ █  █ ██  █       █    █  █    █  █  █  
+ ████ █  █ █ █ █ ███   ███  █  █ ██ ████  █  
+ █ █  █  █ █  ██       █    █  █  █ █  █  █  
+ █  █ ████ █   █       ███ ███ ████ █  █  █  
+                                             
+
+
+
+                                       
+█████ █  █ █   █     █   █ ███ █   █ ███
+ █  █ █  █ ██  █     ██  █  █  ██  █ █  
+ ████ █  █ █ █ █ ███ █ █ █  █  █ █ █ ███
+ █ █  █  █ █  ██     █  ██  █  █  ██ █  
+ █  █ ████ █   █     █   █ ███ █   █ ███
+                                        
+
+
+
+                                   
+█████ █  █ █   █      ███ ███ █   █
+ █  █ █  █ ██  █       █  █   ██  █
+ ████ █  █ █ █ █ ███   █  ███ █ █ █
+ █ █  █  █ █  ██       █  █   █  ██
+ █  █ ████ █   █       █  ███ █   █
+                                   
+
+                                                 
+█████ █  █ █   █       ███ █   ███ █ █ ███ █   █
+ █  █ █  █ ██  █       █   █   █   █ █ █   ██  █
+ ████ █  █ █ █ █ ███   ███ █   ███ █ █ ███ █ █ █
+ █ █  █  █ █  ██       █   █   █   █ █ █   █  ██
+ █  █ ████ █   █       ███ ███ ███  █  ███ █   █
+                                                  
+
+
+
+                                                  
+█████ █  █ █   █     ███ █   █ ███ █   █ █ ███
+ █  █ █  █ ██  █      █  █   █ █   █   █ █ █  
+ ████ █  █ █ █ █ ███  █  █ █ █ ███ █   █ █ ███
+ █ █  █  █ █  ██      █  ██ ██ █   █   █ █ █  
+ █  █ ████ █   █      █  █   █ ███ ███  █  ███
+                                                  
+
+
+
+
+
+
+                                                            
+█████ █  █ █   █     ███ █  █ ███ █████ ███ ███  ███ █   █
+ █  █ █  █ ██  █      █  █  █  █   █  █  █  █    █   ██  █
+ ████ █  █ █ █ █ ███  █  ████  █   ████  █  ███  ███ █ █ █
+ █ █  █  █ █  ██      █  █  █  █   █ █   █  █    █   █  ██
+ █  █ ████ █   █      █  █  █ ███  █  █  █  ███  ███ █   █
+                                                            
+
+
+
+
+                                                      
+█████ █  █ █   █     ███ ████ █  █ █████ ███ ███ ███ █   █
+ █  █ █  █ ██  █     █   █  █ █  █  █  █  █  █   █   ██  █
+ ████ █  █ █ █ █ ███ ███ █  █ █  █  ████  █  ███ ███ █ █ █
+ █ █  █  █ █  ██     █   █  █ █  █  █ █   █  █   █   █  ██
+ █  █ ████ █   █     █   ████ ████  █  █  █  ███ ███ █   █
+                                                            
+
+
+
+
+
+
+                                                       
+█████ █  █ █   █     ███ ███ ███ ███ ███  ███ █   █
+ █  █ █  █ ██  █     █    █  █    █  █    █   ██  █
+ ████ █  █ █ █ █ ███ ███  █  ███  █  ███  ███ █ █ █
+ █ █  █  █ █  ██     █    █  █    █  █    █   █  ██
+ █  █ ████ █   █     █   ███ █    █  ███  ███ █   █
+                                                       
+
+
+
+
+
+
+
+
+
